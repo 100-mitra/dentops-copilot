@@ -1,8 +1,12 @@
 # DentOps Copilot
 
+[![CI](https://github.com/100-mitra/dentops-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/100-mitra/dentops-copilot/actions/workflows/ci.yml)
+
 An **MCP-native agentic copilot** for a dental practice. Given a dental X-ray + a patient record, a Claude agent orchestrates several MCP tools to detect findings, pull history, draft a patient-friendly summary and an insurance pre-authorisation narrative, and propose a recall — streaming every step live to a React dashboard over WebSocket. The MCP server (FastAPI + FastMCP) is callable by any MCP client, including Claude Desktop.
 
 > Portfolio prototype. **Not a medical device.** Every generated artifact is a **draft for dentist review.**
+
+![DentOps Copilot — live demo: a Claude agent calls MCP tools and streams grounded drafts to the dashboard](docs/demo.gif)
 
 ## What I built vs. what's third-party
 
