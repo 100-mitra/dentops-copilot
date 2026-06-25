@@ -1,0 +1,9 @@
+{
+  "fixture:bitewing_1042": [
+    { "tooth_region": "#14", "label": "caries", "confidence": 0.91, "bbox": [158, 24, 32, 64] },
+    { "tooth_region": "#3", "label": "caries", "confidence": 0.62, "bbox": [50, 24, 32, 64] }
+  ],
+  "fixture:bitewing_demo2": [
+    { "tooth_region": "#19", "label": "caries", "confidence": 0.84, "bbox": [60, 90, 30, 60] }
+  ]
+}

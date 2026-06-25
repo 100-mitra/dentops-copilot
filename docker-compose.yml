@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: dentops
+      POSTGRES_PASSWORD: dentops
+      POSTGRES_DB: dentops
+    ports:
+      - "5432:5432"
+    volumes:
+      - dentops_pg:/var/lib/postgresql/data
+
+  api:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://dentops:dentops@db:5432/dentops
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    command: uvicorn backend.app:app --host 0.0.0.0 --port 8000
+
+volumes:
+  dentops_pg:

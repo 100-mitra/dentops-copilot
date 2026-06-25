@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: ruff check backend
+      - run: pytest -q
+        env:
+          DATABASE_URL: sqlite:///./test.db
+          # No ANTHROPIC_API_KEY in CI — tests must not call the live API.
+          # Mark live-agent tests with @pytest.mark.live and skip them here.
